@@ -39,14 +39,18 @@ export default class Server {
             
             //Configurar Usuarios -> Usuarios conectados
             socket.configurarUsuario(cliente, this.io);
+
+            // Obtener usuarios activos
+            socket.obtenerUsuarios(cliente, this.io);
             
             // Conectar Cliente
-            socket.conectarCliente(cliente);
+            socket.conectarCliente(cliente, this.io);
             
             // Mensajes de los clientes
             socket.mensaje(cliente, this.io);
+
             // Desconectar Clientes
-            socket.desconectar(cliente);
+            socket.desconectar(cliente, this.io);
         });
     };
 
